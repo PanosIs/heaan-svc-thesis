@@ -1,0 +1,11 @@
+//devcontainer.json
+{
+    "name": "Dissertation Client",
+    "dockerFile": "Dockerfile",
+  
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+  
+    "extensions": ["ms-azuretools.vscode-docker", "austin.code-gnu-global", "ms-vscode.cpptools"]
+}
