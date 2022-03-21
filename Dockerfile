@@ -29,4 +29,4 @@ RUN python3 -m pip install -e python/
 RUN python3 tests/all.py
 # Copy server file
 COPY . .
-ENTRYPOINT /usr/bin/python3 eva_server.py 
+ENTRYPOINT /usr/bin/python3 eva_server.py

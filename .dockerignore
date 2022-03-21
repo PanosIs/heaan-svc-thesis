@@ -1,0 +1,5 @@
+# Ignore all files
+*
+
+# Reinclude specific server files
+!eva_server.py
