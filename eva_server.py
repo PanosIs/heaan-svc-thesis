@@ -235,4 +235,4 @@ def get_params(id):
     return send_file(f'session.{id}.evaparams', as_attachment=True)
 
 if __name__ == '__main__':
-    api.run(threaded=False)
+    api.run(threaded=False, port=80)
