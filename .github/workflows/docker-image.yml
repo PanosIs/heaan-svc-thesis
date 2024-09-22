@@ -32,6 +32,7 @@ jobs:
       - name: Build and push server Docker image
         uses: docker/build-push-action@v2
         with:
+          platforms: linux/amd64,linux/arm64/v8
           context: "{{defaultContext}}:demo/server"
           push: true
           tags: ghcr.io/dreammify/heaan-svc-thesis:server
@@ -40,6 +41,7 @@ jobs:
       - name: Build and push client Docker image
         uses: docker/build-push-action@v2
         with:
+          platforms: linux/amd64,linux/arm64/v8
           context: "{{defaultContext}}:demo/client"
           push: true
           tags: ghcr.io/dreammify/heaan-svc-thesis:client
