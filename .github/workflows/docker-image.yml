@@ -34,7 +34,7 @@ jobs:
         with:
           context: "{{defaultContext}}:demo/server"
           push: true
-          tags: plantavos/eva-server:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       
       - name: Build and push client Docker image
@@ -42,5 +42,5 @@ jobs:
         with:
           context: "{{defaultContext}}:demo/client"
           push: true
-          tags: plantavos/eva-client:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
