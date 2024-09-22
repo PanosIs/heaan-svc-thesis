@@ -9,7 +9,7 @@ RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100
 RUN update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++ 100
 # Install Python dependencies
 RUN apt-get install -qqy pip
-RUN python3 -m pip install numpy flask requests sklearn
+RUN python3 -m pip install numpy flask requests scikit-learn
 # Install Microsoft SEAL
 WORKDIR /root
 RUN git clone -b v3.6.4 https://github.com/microsoft/SEAL.git
