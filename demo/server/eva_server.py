@@ -19,7 +19,7 @@ from eva.seal import generate_keys
 import numpy
 from sklearn import datasets
 
-CATEGORIES = ('comp.graphics', 'rec.autos', 'rec.sport.baseball', 'sci.crypt', 'talk.politics.mideast', 'soc.religion.christian',  'talk.politics.guns', 'rec.motorcycles',)
+CATEGORIES = ('comp.graphics', 'rec.autos', 'rec.motorcycles', 'rec.sport.baseball', 'sci.crypt', 'soc.religion.christian', 'talk.politics.guns', 'talk.politics.mideast')
 NUM_FEATURES = 4096
 
 # Eva Application Wrapper
@@ -45,12 +45,16 @@ class EvaApp:
             shuffle=False
         )
         
+        print(train.target_names)
+        
         test = datasets.fetch_20newsgroups(
             subset='test',
             remove=('headers', 'footers', 'quotes'),
             categories=CATEGORIES,
             shuffle=False
         )
+
+        print(test.target_names)
 
         print('Fitting TF-IDF vectorizer...')
         vectorizer = TfidfVectorizer(norm=None, stop_words='english', ngram_range=(1,3), max_features=NUM_FEATURES)

@@ -49,7 +49,6 @@ class Client:
 
         # Get categories
         self.categories = requests.get(f"http://{ADDRESS}/categories").json()["categories"]
-        print(self.categories)
 
     # If index == -1 pick random index
     def classify_indexed(self, index):
