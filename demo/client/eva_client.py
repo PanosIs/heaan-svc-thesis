@@ -2,6 +2,7 @@ import json
 import requests
 import click
 import random
+import os
 from sklearn.feature_extraction.text import CountVectorizer
 from eva import load, save
 from eva.seal import generate_keys
@@ -48,6 +49,7 @@ class Client:
 
         # Get categories
         self.categories = requests.get(f"http://{ADDRESS}/categories").json()["categories"]
+        print(self.categories)
 
     # If index == -1 pick random index
     def classify_indexed(self, index):
@@ -97,6 +99,8 @@ class Client:
         print()
         print("Classification:")
         print(self.categories[i])
+        print("Actual classification:")
+        print(self.categories[test.target[index]])
         print()
 
     def classify_custom(self, input):
@@ -136,7 +140,7 @@ class Client:
         print("Closing server session...")
         requests.post(f"http://{ADDRESS}/session/{self.session}/close")
 
-ADDRESS='172.18.0.2:80'
+ADDRESS=os.getenv("EVA_SERVER_ADDRESS", "0.0.0.0:80")
 
 @click.command()
 def classify():
