@@ -34,7 +34,7 @@ jobs:
         with:
           context: "{{defaultContext}}:demo/server"
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/dreammify/heaan-svc-thesis:server
           labels: ${{ steps.meta.outputs.labels }}
       
       - name: Build and push client Docker image
@@ -42,5 +42,5 @@ jobs:
         with:
           context: "{{defaultContext}}:demo/client"
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/dreammify/heaan-svc-thesis:client
           labels: ${{ steps.meta.outputs.labels }}
